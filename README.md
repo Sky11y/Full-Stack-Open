@@ -5,13 +5,17 @@ I'm doing the course in Finnish but will do the exercises in English.
 The exercises are divided in directories by parts.
 I will update this readme as I complete the exercises.
 
-Part 0 - Fundamentals of Web apps
-* 0.1: HTML
-* 0.2: CSS
-* 0.3: HTML forms
-* 0.4: New note diagram
-* 0.5: Single page app diagram
-* 0.6: New note in Single page app diagram
+## Part 0 - Fundamentals of Web apps
+
+| No  | Finished | Exercise name |
+|-----|---------|---------------|
+| 0.1 | - | HTML    |
+| 0.2 | - | CSS     |
+| 0.3 | - | HTML forms  |
+| 0.4 | - | New note diagram |
+| 0.5 | - | Single page app diagram |
+| 0.6 | - | New note in Single page app diagram |
+
 Part 1 - Introductin to React
 
 Part 2 - Communicating with server
