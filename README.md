@@ -18,7 +18,7 @@ Status legend
 | 0.1 | HTML | DONE |
 | 0.2 | CSS | DONE |
 | 0.3 | HTML forms | DONE |
-| 0.4 | New note diagram | WIP |
+| 0.4 | New note diagram | DONE |
 | 0.5 | Single page app diagram | N/A |
 | 0.6 | New note in Single page app diagram | N/A |
 
