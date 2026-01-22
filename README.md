@@ -15,10 +15,10 @@ Status legend
 
 | No  | Exercise name | Status |
 |-----|----|----|
-| 0.1 | HTML | N/A |
-| 0.2 | CSS | N/A |
-| 0.3 | HTML forms | N/A |
-| 0.4 | New note diagram | N/A |
+| 0.1 | HTML | DONE |
+| 0.2 | CSS | DONE |
+| 0.3 | HTML forms | DONE |
+| 0.4 | New note diagram | WIP |
 | 0.5 | Single page app diagram | N/A |
 | 0.6 | New note in Single page app diagram | N/A |
 
