@@ -7,9 +7,8 @@ sequenceDiagram
     Note right of browser: The browser sends a POST request with a JSON payload
     activate server
     server-->>browser: JSON
-    Note left of server: The server responses with JSON object
     deactivate server
 
-    Note left of server: The browser handles response and updates the page
+    Note right of browser: The browser handles response and updates the page
 
 ```
