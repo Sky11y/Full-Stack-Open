@@ -19,8 +19,8 @@ Status legend
 | 0.2 | CSS | DONE |
 | 0.3 | HTML forms | DONE |
 | 0.4 | New note diagram | DONE |
-| 0.5 | Single page app diagram | N/A |
-| 0.6 | New note in Single page app diagram | N/A |
+| 0.5 | Single page app diagram | DONE |
+| 0.6 | New note in Single page app diagram | DONE |
 
 ## Part 1 - Introduction to React
 
