@@ -26,8 +26,8 @@ Status legend
 
 | No  | Exercise name | Status |
 |-----|----|----|
-| 1.1 | course information, step1 | N/A |
-| 1.2 | course information, step2 | N/A |
+| 1.1 | course information, step1 | DONE |
+| 1.2 | course information, step2 | DONE |
 | 1.3 | course information, step3 | N/A |
 | 1.4 | course information, step4 | N/A |
 | 1.5 | course information, step5 | N/A |
