@@ -8,10 +8,12 @@ const Header = ({title}) => {
 	)
 }
 
-const Statistic = ({ text, value }) => {
+const Statistics = (props) => {
+	const text = props.text
+	const value = props.value
 	return (
 		<div>
-			{text} {value}
+			{text} {value} {text === 'positive' ? '%' : ''}
 		</div>
 	)
 }
@@ -49,12 +51,12 @@ const App = () => {
 			<Button onClick={handleNeutral} text='neutral' />
 			<Button onClick={handleBad} text='bad' />
 			<Header title='statistics' />
-			<Statistic text='good' value={good} />
-			<Statistic text='neutral' value={neutral} />
-			<Statistic text='bad' value={bad} />
-			<Statistic text='all' value={total} />
-			<Statistic text='average' value={average} />
-			<div>positive {positive}%</div>
+			<Statistics text='good' value={good} />
+			<Statistics text='neutral' value={neutral} />
+			<Statistics text='bad' value={bad} />
+			<Statistics text='all' value={total} />
+			<Statistics text='average' value={average} />
+			<Statistics text='positive' value={positive} />
 		</div>
 	)
 } 
