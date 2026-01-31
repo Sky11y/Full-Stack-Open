@@ -10,9 +10,11 @@ const Header = ({title}) => {
 
 const StatisticLine = ({text, value}) => {
 	return (
-		<div>
-			{text} {value} {text === 'positive' ? '%' : ''}
-		</div>
+		<tr>
+			<td>{text}</td>
+			<td>{value}</td>
+			<td>{text === 'positive' ? '%' : null}</td>
+		</tr>
 	)
 }
 
@@ -23,15 +25,16 @@ const Statistics = ({statistics}) => {
 	const average = (statistics.good - statistics.bad) / statistics.total
 	const positive = statistics.good / statistics.total * 100
 	return (
-		<div>
-			<StatisticLine text='good' value={statistics.good} />
-			<StatisticLine text='neutral' value={statistics.neutral} />
-			<StatisticLine text='bad' value={statistics.bad} />
-			<StatisticLine text='total' value={statistics.total} />
-			<StatisticLine text='average' value={average} />
-			<StatisticLine text='positive' value={positive} />
-		</div>
-
+		<table>
+			<tbody>
+				<StatisticLine text='good' value={statistics.good} />
+				<StatisticLine text='neutral' value={statistics.neutral} />
+				<StatisticLine text='bad' value={statistics.bad} />
+				<StatisticLine text='total' value={statistics.total} />
+				<StatisticLine text='average' value={average} />
+				<StatisticLine text='positive' value={positive} />
+			</tbody>
+		</table>
 	)
 }
 
@@ -67,7 +70,7 @@ const App = () => {
 	}
 
 	return (
-		<div>
+		<div className="App">
 			<Header title='give feedback' />
 			<Button onClick={handleGood} text='good' />
 			<Button onClick={handleNeutral} text='neutral' />
