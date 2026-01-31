@@ -8,7 +8,7 @@ const Header = ({title}) => {
 	)
 }
 
-const Statistic = ({text, value}) => {
+const StatisticLine = ({text, value}) => {
 	return (
 		<div>
 			{text} {value} {text === 'positive' ? '%' : ''}
@@ -24,12 +24,12 @@ const Statistics = ({statistics}) => {
 	const positive = statistics.good / statistics.total * 100
 	return (
 		<div>
-			<Statistic text='good' value={statistics.good} />
-			<Statistic text='neutral' value={statistics.neutral} />
-			<Statistic text='bad' value={statistics.bad} />
-			<Statistic text='total' value={statistics.total} />
-			<Statistic text='average' value={average} />
-			<Statistic text='positive' value={positive} />
+			<StatisticLine text='good' value={statistics.good} />
+			<StatisticLine text='neutral' value={statistics.neutral} />
+			<StatisticLine text='bad' value={statistics.bad} />
+			<StatisticLine text='total' value={statistics.total} />
+			<StatisticLine text='average' value={average} />
+			<StatisticLine text='positive' value={positive} />
 		</div>
 
 	)
@@ -73,7 +73,7 @@ const App = () => {
 			<Button onClick={handleNeutral} text='neutral' />
 			<Button onClick={handleBad} text='bad' />
 			<Header title='statistics' />
-			<Statistics statistics={allStats}/>
+			<Statistics statistics={allStats} />
 		</div>
 	)
 } 
