@@ -8,13 +8,30 @@ const Header = ({title}) => {
 	)
 }
 
-const Statistics = (props) => {
-	const text = props.text
-	const value = props.value
+const Statistic = ({text, value}) => {
 	return (
 		<div>
 			{text} {value} {text === 'positive' ? '%' : ''}
 		</div>
+	)
+}
+
+const Statistics = ({statistics}) => {
+	if (statistics.total === 0) {
+		return (<div>No feedback given</div>)
+	}
+	const average = (statistics.good - statistics.bad) / statistics.total
+	const positive = statistics.good / statistics.total * 100
+	return (
+		<div>
+			<Statistic text='good' value={statistics.good} />
+			<Statistic text='neutral' value={statistics.neutral} />
+			<Statistic text='bad' value={statistics.bad} />
+			<Statistic text='total' value={statistics.total} />
+			<Statistic text='average' value={average} />
+			<Statistic text='positive' value={positive} />
+		</div>
+
 	)
 }
 
@@ -42,8 +59,13 @@ const App = () => {
 		setTotal(good + neutral + updatedBad)
 	}
 
-	let average = (good - bad) / total
-	let positive = good / total * 100
+	const allStats = {
+		good: good,
+		neutral: neutral,
+		bad: bad,
+		total: total
+	}
+
 	return (
 		<div>
 			<Header title='give feedback' />
@@ -51,12 +73,7 @@ const App = () => {
 			<Button onClick={handleNeutral} text='neutral' />
 			<Button onClick={handleBad} text='bad' />
 			<Header title='statistics' />
-			<Statistics text='good' value={good} />
-			<Statistics text='neutral' value={neutral} />
-			<Statistics text='bad' value={bad} />
-			<Statistics text='all' value={total} />
-			<Statistics text='average' value={average} />
-			<Statistics text='positive' value={positive} />
+			<Statistics statistics={allStats}/>
 		</div>
 	)
 } 
