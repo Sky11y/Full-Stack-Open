@@ -46,6 +46,7 @@ Status legend
 | No  | Exercise name | Status |
 |-----|----|----|
 | 2.1 | course information, step6 | DONE |
+| 2.2 | course information, step7 | DONE |
 | 2.3 | course information, step8 | DONE |
 | 2.4 | course information, step9 | DONE |
 | 2.5 | course information, step10 | DONE |
