@@ -1,10 +1,16 @@
 import { useState } from 'react'
 
+const Header = ({text}) => <h1>{text}</h1>
+
 const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>
 
-const UpdateArray = ({ values }) => {
-	const copy = [ ...values ]
-
+const Content = ({anecdote, votes}) => {
+	return (
+		<div>
+			<p>{anecdote}</p>
+			<p>has {votes} votes</p>
+		</div>
+	)
 }
 
 const App = () => {
@@ -21,30 +27,37 @@ const App = () => {
 
 	const [selected, setSelected] = useState(0)
 	const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
+	const [maxVotes, setMaxVotes] = useState(0)
 
 	const nextAnecdote = () => {
 		const rand = Math.floor(Math.random() * anecdotes.length)
-		//console.log(rand)
 		setSelected(rand)
 	}
 
 	const updateVotes = () => {
 		const copyVotes = [ ...votes ]
 		copyVotes[selected] += 1
-		//console.log(copyVotes)
+		const max = Math.max( ...copyVotes )
+		//console.log(max)
 		setVotes(copyVotes)
+		setMaxVotes(max)
+	}
 
+	let maxIdx = 0
+	while (votes[maxIdx] !== maxVotes && maxIdx < anecdotes.length) {
+		maxIdx++
 	}
 
 	return (
 		<div>
-			<p>{anecdotes[selected]}</p>
-			<p>has {votes[selected]} votes</p>
+			<Header text='Anecdote of the day' />
+			<Content anecdote={anecdotes[selected]} votes={votes[selected]} /> 
 			<Button onClick={updateVotes} text='vote' />
 			<Button onClick={nextAnecdote} text='next anecdote' />
+			<Header text='Anecdote with most votes' />
+			<Content anecdote={anecdotes[maxIdx]} votes={votes[maxIdx]} />
 		</div>
 	)
-
 }
 
 export default App
