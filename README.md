@@ -37,9 +37,9 @@ Status legend
 | 1.9 | unicafe, step4 | DONE |
 | 1.10 | unicafe, step5 | DONE |
 | 1.11* | unicafe, step6 | DONE |
-| 1.12* | anecdotes, step1 | N/A |
-| 1.13* | anecdotes, step2 | N/A |
-| 1.14* | anecdotes, step3 | N/A |
+| 1.12* | anecdotes, step1 | DONE |
+| 1.13* | anecdotes, step2 | DONE |
+| 1.14* | anecdotes, step3 | DONE |
 
 ## Part 2 - Communicating with server
 
