@@ -43,6 +43,29 @@ Status legend
 
 ## Part 2 - Communicating with server
 
+| No  | Exercise name | Status |
+|-----|----|----|
+| 2.1 | course information, step6 | N/A |
+| 2.2 | course information, step7 | N/A |
+| 2.3 | course information, step8 | N/A |
+| 2.4 | course information, step9 | N/A |
+| 2.5 | course information, step10 | N/A |
+| 2.6 | phonebook, step1 | N/A |
+| 2.7 | phonebook, step2 | N/A |
+| 2.8 | phonebook, step3 | N/A |
+| 2.9 | phonebook, step4 | N/A |
+| 2.10 | phonebook, step5 | N/A |
+| 2.11 | phonebook, step6 | N/A |
+| 2.12 | phonebook, step7 | N/A |
+| 2.13 | phonebook, step8 | N/A |
+| 2.14 | phonebook, step9 | N/A |
+| 2.15* | phonebook, step10 | N/A |
+| 2.16* | phonebook, step11 | N/A |
+| 2.17* | phonebook, step12 | N/A |
+| 2.18* | data for countries, step1 | N/A |
+| 2.19* | data for countries, step2 | N/A |
+| 2.20* | data for countries, step3 | N/A |
+
 ## Part 3 - Programming a server with NodeJS and Express
 
 ## Part 4 - Testing Express servers, user administration
