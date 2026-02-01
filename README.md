@@ -45,11 +45,10 @@ Status legend
 
 | No  | Exercise name | Status |
 |-----|----|----|
-| 2.1 | course information, step6 | N/A |
-| 2.2 | course information, step7 | N/A |
-| 2.3 | course information, step8 | N/A |
-| 2.4 | course information, step9 | N/A |
-| 2.5 | course information, step10 | N/A |
+| 2.1 | course information, step6 | DONE |
+| 2.3 | course information, step8 | DONE |
+| 2.4 | course information, step9 | DONE |
+| 2.5 | course information, step10 | DONE |
 | 2.6 | phonebook, step1 | N/A |
 | 2.7 | phonebook, step2 | N/A |
 | 2.8 | phonebook, step3 | N/A |
