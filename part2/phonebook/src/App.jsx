@@ -7,13 +7,20 @@ const Content = ({person, number}) => {
 }
 
 const App = () => {
-  const [persons, setPersons] = useState([]) 
+  const [persons, setPersons] = useState([
+		{ name: 'Pecca', number: '123', id: 1 },
+		{ name: 'Pircco', number: '456', id: 2  },
+		{ name: 'Ronsu', number: '567', id: 3  },
+	]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+	const [filterValue, setFilterValue] = useState('')
 
 	const addName = (event) => {
 		event.preventDefault()
-		if (persons.some(person => person.name === newName)) {
+		if (!newName) {
+			window.alert('Name field cannot be empty!')
+		}	else if (persons.some(person => person.name === newName)) {
 			window.alert(`${newName} is already in the phonebook`)
 		} else if (persons.some(person => person.number === newNumber)) {
 			window.alert(`Phonenumber ${newNumber} is already in use`)
@@ -37,12 +44,28 @@ const App = () => {
 		setNewNumber(event.target.value)
 	}
 
+	const filterContacts = (event) => {
+		setFilterValue(event.target.value)
+	}
+
+	const personsToShow = !filterValue ?
+		persons :
+		persons.filter(person => 
+			person.name.toLowerCase().includes(filterValue.toLowerCase())
+		)
+
   return (
     <div>
       <h2>Phonebook</h2>
+			<form>
+				<div>
+					filter contacts: <input value={filterValue} onChange={filterContacts} />
+				</div>
+			</form>
+			<h2>Add a new contact</h2>
       <form onSubmit={addName}>
         <div>
-          name: <input value={newName}	onChange={handleNameChange} />
+          name: <input value={newName} onChange={handleNameChange} />
         </div>
 				<div>
 					number: <input value={newNumber} onChange={handleNumberChange} />
@@ -53,12 +76,11 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
 			<div>
-				{persons.map(person =>
+				{personsToShow.map(person =>
 					<Content key={person.id} person={person.name} number={person.number} />)}
 			</div>
     </div>
   )
-
 }
 
 export default App
