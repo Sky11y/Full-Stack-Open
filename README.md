@@ -50,11 +50,11 @@ Status legend
 | 2.3 | course information, step8 | DONE |
 | 2.4 | course information, step9 | DONE |
 | 2.5 | course information, step10 | DONE |
-| 2.6 | phonebook, step1 | N/A |
-| 2.7 | phonebook, step2 | N/A |
-| 2.8 | phonebook, step3 | N/A |
-| 2.9 | phonebook, step4 | N/A |
-| 2.10 | phonebook, step5 | N/A |
+| 2.6 | phonebook, step1 | DONE |
+| 2.7 | phonebook, step2 | DONE |
+| 2.8 | phonebook, step3 | DONE |
+| 2.9 | phonebook, step4 | DONE |
+| 2.10 | phonebook, step5 | DONE |
 | 2.11 | phonebook, step6 | N/A |
 | 2.12 | phonebook, step7 | N/A |
 | 2.13 | phonebook, step8 | N/A |
