@@ -7,25 +7,24 @@ const Content = ({person}) => {
 }
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas',
-			id: 1,
-		}
-  ]) 
+  const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
 
 	const addName = (event) => {
 		event.preventDefault()
-		const newPerson = {
-			name: newName,
-			id: String(persons.length + 1),
+		if (persons.some(person => person.name === newName)) {
+			window.alert(`${newName} is already in the phonebook`)
+		} else {
+			const newPerson = {
+				name: newName,
+				id: String(persons.length + 1),
+			}
+			setPersons(persons.concat(newPerson))
+			setNewName('')
 		}
-		setPersons(persons.concat(newPerson))
-		setNewName('')
 	}
 
 	const handleFormChange = (event) => {
-		console.log("handleFormChange", event) 
 		setNewName(event.target.value)
 	}
   return (
