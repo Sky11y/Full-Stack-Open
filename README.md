@@ -55,11 +55,11 @@ Status legend
 | 2.8 | phonebook, step3 | DONE |
 | 2.9 | phonebook, step4 | DONE |
 | 2.10 | phonebook, step5 | DONE |
-| 2.11 | phonebook, step6 | N/A |
-| 2.12 | phonebook, step7 | N/A |
-| 2.13 | phonebook, step8 | N/A |
-| 2.14 | phonebook, step9 | N/A |
-| 2.15* | phonebook, step10 | N/A |
+| 2.11 | phonebook, step6 | DONE |
+| 2.12 | phonebook, step7 | DONE |
+| 2.13 | phonebook, step8 | DONE |
+| 2.14 | phonebook, step9 | DONE |
+| 2.15* | phonebook, step10 | DONE |
 | 2.16* | phonebook, step11 | N/A |
 | 2.17* | phonebook, step12 | N/A |
 | 2.18* | data for countries, step1 | N/A |
