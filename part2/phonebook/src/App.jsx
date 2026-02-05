@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react'
-import contactService from './services/persons'
-import axios from 'axios'
-
-const Content = ({person, number}) => {
-	return (
-		<div>{person} {number}</div>
-	)
-}
+import contactService from './services/contacts'
+import Contact from './components/Contact'
 
 const Filter = ({filterValue, func}) => {
 	return (	
@@ -15,31 +9,6 @@ const Filter = ({filterValue, func}) => {
 					filter contacts: <input value={filterValue} onChange={func} />
 				</div>
 			</form>
-	)
-}
-
-const PersonForm = (props) => {
-	return (
-      <form onSubmit={props.addName}>
-        <div>
-          name: <input value={props.newName} onChange={props.handleNameChange} />
-        </div>
-				<div>
-					number: <input value={props.newNumber} onChange={props.handleNumberChange} />
-				</div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-	)
-}
-
-const Persons = ({persons}) => {
-	return (
-			<div>
-				{persons.map(person =>
-					<Content key={person.id} person={person.name} number={person.number} />)}
-			</div>
 	)
 }
 
@@ -61,11 +30,24 @@ const App = () => {
 		event.preventDefault()
 		if (!newName) {
 			window.alert('Name field cannot be empty!')
-		}	else if (persons.some(person => person.name === newName)) {
-			window.alert(`${newName} is already in the phonebook`)
-		} else if (persons.some(person => person.number === newNumber)) {
+		}
+		else if (persons.some(p => p.number === newNumber)) {
 			window.alert(`Phonenumber ${newNumber} is already in use`)
-		} else {
+		}
+		else if (persons.some(p => p.name === newName)) {
+			if (window.confirm(`'${newName}' is already in the phonebook. Replace the old number with a new one?`)) {
+				const updatedPerson = persons.find(p => p.name === newName)
+				updatedPerson.number = newNumber
+				contactService
+					.updateContact(updatedPerson.id, updatedPerson)
+					.then(updatedContact => {
+						setPersons(persons.map(p => p.id !== updatedPerson.id ? p : updatedPerson))
+						setNewName('')
+						setNewNumber('')
+					})
+			}
+		}
+		else {
 			const newPerson = {
 				name: newName,
 				number: newNumber,
@@ -77,7 +59,17 @@ const App = () => {
 					setPersons(persons.concat(newContact))
 					setNewName('')
 					setNewNumber('')
+				})
+		}
+	}
 
+	const deleteName = (person) => {
+		const id = person.id
+		if (window.confirm(`Are you sure you want to delete ${person.name}`)) {
+			contactService
+				.deleteContact(id)
+				.then(rmContact => {
+						setPersons(persons.filter(p => p.id !== id ? p: null))
 				})
 		}
 	}
@@ -105,9 +97,9 @@ const App = () => {
       <h2>Phonebook</h2>
 			<Filter filterValue={filterValue} func={filterContacts} />
 			<h2>Add a new contact</h2>
-			<PersonForm newName={newName} addName={addName} newNumber={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange} />
+			<Contact.Form newName={newName} addName={addName} newNumber={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange} />
       <h2>Numbers</h2>
-			<Persons persons={personsToShow} />
+			<Contact.Contacts persons={personsToShow} delFunc={deleteName} />
     </div>
   )
 }
