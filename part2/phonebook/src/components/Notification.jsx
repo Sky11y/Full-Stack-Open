@@ -4,9 +4,9 @@ const Notification = ({message, type}) => {
 	}
 
 	switch (type) {
-		case 'delete':
+		case 'error':
 			return (
-				<div className="delete">
+				<div className="error">
 					{message}
 				</div>
 			)

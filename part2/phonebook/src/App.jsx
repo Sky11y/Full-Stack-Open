@@ -3,6 +3,8 @@ import contactService from './services/contacts'
 import Contact from './components/Contact'
 import Notification from './components/Notification'
 
+const MSG_TIME = 3000
+
 const Filter = ({filterValue, func}) => {
 	return (	
 			<form>
@@ -40,20 +42,27 @@ const App = () => {
 		else if (persons.some(p => p.name === newName)) {
 			if (window.confirm(`'${newName}' is already in the phonebook. Replace the old number with a new one?`)) {
 				const updatedPerson = persons.find(p => p.name === newName)
+				const name = updatedPerson.name
 				updatedPerson.number = newNumber
+
 				contactService
 					.updateContact(updatedPerson.id, updatedPerson)
 					.then(updatedContact => {
 						setPersons(persons.map(p => p.id !== updatedPerson.id ? p : updatedPerson))
 						setNewName('')
 						setNewNumber('')
-						setUserMessage(`Successfully updated '${updatedContact.name}'`)
+						setUserMessage(`Successfully updated '${name}'`)
 						setUserMessageType('notice')
-						setTimeout(() => {
-							setUserMessage(null)
-							setUserMessageType(null)
-						}, 2000)
 					})
+					.catch(err => {
+						setPersons(persons.filter(p => p.name !== name))
+						setUserMessage(`Information of '${name}' has already been removed from the server`)
+						setUserMessageType('error')
+					})
+					setTimeout(() => {
+						setUserMessage(null)
+						setUserMessageType(null)
+					}, MSG_TIME)
 			}
 		}
 		else {
@@ -73,25 +82,32 @@ const App = () => {
 					setTimeout(() => {
 						setUserMessage(null)
 						setUserMessageType(null)
-					}, 2000)
+					}, MSG_TIME)
 				})
 		}
 	}
 
 	const deleteName = (person) => {
 		const id = person.id
-		if (window.confirm(`Are you sure you want to delete '${person.name}'`)) {
+		const name = person.name
+		if (window.confirm(`Are you sure you want to delete '${name}'`)) {
 			contactService
 				.deleteContact(id)
 				.then(rmContact => {
 						setPersons(persons.filter(p => p.id !== id ? p: null))
-						setUserMessage(`Successfully deleted '${rmContact.name}'`)
-						setUserMessageType('delete')
-						setTimeout(() => {
-							setUserMessage(null)
-							setUserMessageType(null)
-						}, 2000)
+						setUserMessage(`Successfully deleted '${name}'`)
+						setUserMessageType('notice')
 				})
+				.catch(err => {
+					console.log('error catch block')
+					setPersons(persons.filter(p => p.id !== id))
+					setUserMessage(`Information of '${name}' has already been removed from the server`)
+					setUserMessageType('error')
+				})
+				setTimeout(() => {
+					setUserMessage(null)
+					setUserMessageType(null)
+				}, MSG_TIME)
 		}
 	}
 
