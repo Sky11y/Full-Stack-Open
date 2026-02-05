@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import contactService from './services/contacts'
 import Contact from './components/Contact'
+import Notification from './components/Notification'
 
 const Filter = ({filterValue, func}) => {
 	return (	
@@ -17,6 +18,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
 	const [filterValue, setFilterValue] = useState('')
+	const [userMessage, setUserMessage] = useState(null)
+	const [userMessageType, setUserMessageType] = useState('')
 
 	useEffect(() => {
 		contactService
@@ -44,6 +47,12 @@ const App = () => {
 						setPersons(persons.map(p => p.id !== updatedPerson.id ? p : updatedPerson))
 						setNewName('')
 						setNewNumber('')
+						setUserMessage(`Successfully updated '${updatedContact.name}'`)
+						setUserMessageType('notice')
+						setTimeout(() => {
+							setUserMessage(null)
+							setUserMessageType(null)
+						}, 2000)
 					})
 			}
 		}
@@ -59,17 +68,29 @@ const App = () => {
 					setPersons(persons.concat(newContact))
 					setNewName('')
 					setNewNumber('')
+					setUserMessage(`Successfully added '${newContact.name}'`)
+					setUserMessageType('notice')
+					setTimeout(() => {
+						setUserMessage(null)
+						setUserMessageType(null)
+					}, 2000)
 				})
 		}
 	}
 
 	const deleteName = (person) => {
 		const id = person.id
-		if (window.confirm(`Are you sure you want to delete ${person.name}`)) {
+		if (window.confirm(`Are you sure you want to delete '${person.name}'`)) {
 			contactService
 				.deleteContact(id)
 				.then(rmContact => {
 						setPersons(persons.filter(p => p.id !== id ? p: null))
+						setUserMessage(`Successfully deleted '${rmContact.name}'`)
+						setUserMessageType('delete')
+						setTimeout(() => {
+							setUserMessage(null)
+							setUserMessageType(null)
+						}, 2000)
 				})
 		}
 	}
@@ -95,6 +116,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+			<Notification message={userMessage} type={userMessageType} />
 			<Filter filterValue={filterValue} func={filterContacts} />
 			<h2>Add a new contact</h2>
 			<Contact.Form newName={newName} addName={addName} newNumber={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange} />
