@@ -47,20 +47,20 @@ Status legend
 |-----|----|----|
 | 2.1 | course information, step6 | DONE |
 | 2.2 | course information, step7 | DONE |
-| 2.3 | course information, step8 | DONE |
+| 2.3* | course information, step8 | DONE |
 | 2.4 | course information, step9 | DONE |
 | 2.5 | course information, step10 | DONE |
 | 2.6 | phonebook, step1 | DONE |
 | 2.7 | phonebook, step2 | DONE |
 | 2.8 | phonebook, step3 | DONE |
-| 2.9 | phonebook, step4 | DONE |
+| 2.9* | phonebook, step4 | DONE |
 | 2.10 | phonebook, step5 | DONE |
 | 2.11 | phonebook, step6 | DONE |
 | 2.12 | phonebook, step7 | DONE |
 | 2.13 | phonebook, step8 | DONE |
 | 2.14 | phonebook, step9 | DONE |
 | 2.15* | phonebook, step10 | DONE |
-| 2.16* | phonebook, step11 | DONE |
+| 2.16 | phonebook, step11 | DONE |
 | 2.17* | phonebook, step12 | DONE |
 | 2.18* | data for countries, step1 | N/A |
 | 2.19* | data for countries, step2 | N/A |
