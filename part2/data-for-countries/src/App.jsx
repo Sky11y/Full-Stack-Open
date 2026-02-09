@@ -3,79 +3,85 @@ import axios from 'axios'
 
 const baseURL = 'https://studies.cs.helsinki.fi/restcountries'
 
-const Content = ({ country }) => {
-	return (
-		<div>{country}</div>
-	)
-}
-
-const Filter = ({value, countries}) => {
-	if (value === '') {
-		return
-	}
-
-	const filteredCountries = countries.filter(c => {
-		return c.name.common.toLowerCase().includes(value.toLowerCase())
-	})
-
-	if (filteredCountries.length > 10) {
-		return (
-			<div>Too many matches, specify another filter</div>
-		)
-	}
-	else if (filteredCountries.length > 1) {
-		return (
-			<div>
-				{filteredCountries.map((c, idx) => <Content key={idx} country={c.name.common} />)}
-			</div>
-		)
-	} else if (filteredCountries.length == 1) {
-		const country = filteredCountries[0]
-		return (
-			<div>
-				<h1>{country.name.common}</h1>
-				<div>Capital {country.capital}</div>
-				<div>Area {country.area}</div>
-				<h2>Languages</h2>
-				<ul>
-					{Object.entries(country.languages).map(([key,value]) => (
-						<li key={key}>{value}</li>))}
-				</ul>
-				<img src={country.flags.png} />
-				
-			</div>
-		)
-	} else {
+const Filter = ({ countries, result, handleClick }) => {
+	if (countries.length === 0) {
 		return (
 			<div>No countries found</div>
 		)
 	}
+	else if (countries.length > 10) {
+		return (
+			<div>Too many matches, specify another filter</div>
+		)
+	}
+	else if (countries.length > 1) {
+		return (
+			<div>
+				{countries.map(c => <Content key={c.id} country={c} handleClick={handleClick} />)}
+			</div>
+		)
+	}
+	else if (countries.length === 1) {
+		const country = countries[0]
+		return (
+			<div>
+				<RenderResult country={country} />
+			</div>
+		)
+	} 
+}
+
+const Content = ({country, handleClick}) => {
+	return (
+		<li>
+			{country.name.common}
+			<button onClick={() => handleClick(country.id)}>Show</button> 
+		</li>
+	)	
+}
+
+const RenderResult = ({country}) => {
+	return (
+		<div>
+			<h1>{country.name.common}</h1>
+			<div>Capital {country.capital}</div>
+			<div>Area {country.area}</div>
+			<h2>Languages</h2>
+			<ul>
+				{Object.entries(country.languages).map(([key,value]) => (
+					<li key={key}>{value}</li>))}
+			</ul>
+			<img src={country.flags.png} />
+		</div>
+	)
 }
 
 const App = () => {
 	const [countries, setCountries] = useState([])
 	const [filterValue, setNewFilterValue] = useState('')
+	const [result, setResult] = useState(0)
 
 	useEffect(() => {
 		axios
 			.get(`${baseURL}/api/all`)
 			.then(response => {
-				const allCountries = response.data.map(country => country)
+				const allCountries = response.data.map((country, idx) => {
+					country.id = idx
+					return country
+				})
 				setCountries(allCountries)
 			})
 	}, [])
 
-	const empty = () => {}
-
 	const handleFilterValueChange = (event) => {
 		setNewFilterValue(event.target.value)
+
+		setResult(0)
 	}
 
-//	if (newValue !== '') {
-//
-//		const filteredCountries = countries.filter(c => c.toLowerCase().contains(newValue.toLowerCase()))
-//		console.log(filteredCountries)
-//	}
+	const filteredCountries = filterValue === '' ? [] : countries.filter(c => {
+		return c.name.common.toLowerCase().includes(filterValue.toLowerCase())
+	})
 
 	return (
 		<div>
@@ -84,7 +90,13 @@ const App = () => {
 					find countries <input value={filterValue} onChange={handleFilterValueChange} />
 				</div>
 			</form>
-			<Filter value={filterValue} countries={countries} />
+			<div>
+				{result ? (
+					<RenderResult country={countries.find(c => c.id === result)} />
+				) : (
+					<Filter countries={filteredCountries} showResult={result} handleClick={setResult} />
+				)}
+			</div>
 		</div>
 	)
 }
