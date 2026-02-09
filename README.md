@@ -62,9 +62,9 @@ Status legend
 | 2.15* | phonebook, step10 | DONE |
 | 2.16 | phonebook, step11 | DONE |
 | 2.17* | phonebook, step12 | DONE |
-| 2.18* | data for countries, step1 | N/A |
-| 2.19* | data for countries, step2 | N/A |
-| 2.20* | data for countries, step3 | N/A |
+| 2.18* | data for countries, step1 | DONE |
+| 2.19* | data for countries, step2 | DONE |
+| 2.20* | data for countries, step3 | SKIP |
 
 ## Part 3 - Programming a server with NodeJS and Express
 
