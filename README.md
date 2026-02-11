@@ -68,6 +68,31 @@ Status legend
 
 ## Part 3 - Programming a server with NodeJS and Express
 
+| No  | Exercise name | Status |
+|-----|----|----|
+| 3.1 | phonebook backend, step1 | N/A |
+| 3.2 |  phonebook backend, step2 | N/A |
+| 3.3* |  phonebook backend, step3 | N/A |
+| 3.4 |  phonebook backend, step4 | N/A |
+| 3.5 |  phonebook backend, step5 | N/A |
+| 3.6 |  phonebook backend, step6 | N/A |
+| 3.7 |  phonebook backend, step7 | N/A |
+| 3.8* |  phonebook backend, step8 | N/A |
+| 3.9 |  phonebook backend, step9 | N/A |
+| 3.10 |  phonebook backend, step10 | N/A |
+| 3.11 |  phonebook backend, step11 | N/A |
+| 3.12 | Command-line database | N/A |
+| 3.13 | phonebook database, step1 | N/A |
+| 3.14 | phonebook database, step2 | N/A |
+| 3.15 | phonebook database, step3 | N/A |
+| 3.16 | phonebook database, step4 | N/A |
+| 3.17* | phonebook database, step5 | N/A |
+| 3.18* | phonebook database, step6 | N/A |
+| 3.19* | phonebook database, step7 | N/A |
+| 3.20* | phonebook database, step8 | N/A |
+| 3.21 | deploying the database backend to production | N/A |
+| 3.22 | lint configuration | N/A |
+
 ## Part 4 - Testing Express servers, user administration
 
 ## Part 5 - Testing React apps
