@@ -74,10 +74,10 @@ Status legend
 | 3.2 |  phonebook backend, step2 | DONE |
 | 3.3* |  phonebook backend, step3 | DONE |
 | 3.4 |  phonebook backend, step4 | DONE |
-| 3.5 |  phonebook backend, step5 | N/A |
-| 3.6 |  phonebook backend, step6 | N/A |
-| 3.7 |  phonebook backend, step7 | N/A |
-| 3.8* |  phonebook backend, step8 | N/A |
+| 3.5 |  phonebook backend, step5 | DONE |
+| 3.6 |  phonebook backend, step6 | DONE |
+| 3.7 |  phonebook backend, step7 | DONE |
+| 3.8* |  phonebook backend, step8 | DONE |
 | 3.9 |  phonebook backend, step9 | N/A |
 | 3.10 |  phonebook backend, step10 | N/A |
 | 3.11 |  phonebook backend, step11 | N/A |
