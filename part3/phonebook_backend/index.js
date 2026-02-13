@@ -3,6 +3,8 @@ const app = express()
 
 const PORT = 3001
 
+app.use(express.json())
+
 let persons = [
 	{
 		id: "1",
@@ -58,6 +60,32 @@ app.delete('/api/persons/:id', (request, response) => {
 
 	persons = persons.filter(p => p.id !== id)
 	response.status(204).end()
+})
+
+const generateId = () => {
+	let newId
+	if (persons.length < 1) {
+		return Math.ceil(Math.random() * 10000)
+	}
+	while (1) {
+		newId = Math.ceil(Math.random() * 10000)
+		if (!persons.find(p => p.id === newId)) {
+			return String(newId)
+		}
+	}
+}
+
+app.post('/api/persons', (request, response) => {
+	const body = request.body
+
+	const newPerson = {
+		name: body.name,
+		number: body.number,
+		id: generateId()
+	}
+
+	persons = persons.concat(newPerson)
+	response.json(newPerson)
 })
 
 app.listen(PORT, () => {
