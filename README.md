@@ -5,6 +5,8 @@ I'm doing the course in Finnish but will do the exercises in English.
 The exercises are divided in directories by parts.
 I will update this readme as I complete the exercises.  
 
+Phonebook website: https://phonebook-backend-fxjy.onrender.com/
+
 Status legend
 * N/A - Exercise not started yet
 * WIP - Exercise in progress
@@ -78,9 +80,9 @@ Status legend
 | 3.6 |  phonebook backend, step6 | DONE |
 | 3.7 |  phonebook backend, step7 | DONE |
 | 3.8* |  phonebook backend, step8 | DONE |
-| 3.9 |  phonebook backend, step9 | N/A |
-| 3.10 |  phonebook backend, step10 | N/A |
-| 3.11 |  phonebook backend, step11 | N/A |
+| 3.9 |  phonebook backend, step9 | DONE |
+| 3.10 |  phonebook backend, step10 | DONE |
+| 3.11 |  phonebook backend, step11 | DONE |
 | 3.12 | Command-line database | N/A |
 | 3.13 | phonebook database, step1 | N/A |
 | 3.14 | phonebook database, step2 | N/A |
