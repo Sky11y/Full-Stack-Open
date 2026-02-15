@@ -7,11 +7,11 @@ const MSG_TIME = 3000
 
 const Filter = ({filterValue, func}) => {
 	return (	
-			<form>
-				<div>
-					filter contacts: <input value={filterValue} onChange={func} />
-				</div>
-			</form>
+		<form>
+			<div>
+				filter contacts: <input value={filterValue} onChange={func} />
+			</div>
+		</form>
 	)
 }
 
