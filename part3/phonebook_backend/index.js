@@ -5,28 +5,7 @@ const Person = require('./models/person')
 	
 const app = express()
 
-let persons = [
-	{
-		id: "1",
-		name: "Arto Hellas",
-		number: "040-123456"
-	},
-	{
-		id: "2",
-		name: "Ada Lovelace",
-		number: "39-44-5323523"
-	},
-	{
-		id: "3",
-		name: "Dan Abramov",
-		number: "12-43-234345"
-	},
-	{
-		id: "4",
-		name: "Mary Poppendieck",
-		number: "39-23-6423122"
-	},
-]
+let persons = []
 
 morgan.token('body', req => {
 	return JSON.stringify(req.body)
@@ -42,10 +21,16 @@ app.get('/api/persons', (request, response) => {
 	})
 })
 
-app.get('/api/persons/:id', (request, response) => {
-	Person.findById(request.params.id).then(person => {
-		response.json(person)
-	})
+app.get('/api/persons/:id', (request, response, next) => {
+	Person.findById(request.params.id)
+		.then(person => {
+			if (person) {
+				response.json(person)
+			} else {
+				response.status(404).end()
+			}
+		})
+		.catch(error => next(error))
 })
 
 app.get('/info', (request, response) => {
@@ -55,15 +40,10 @@ app.get('/info', (request, response) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-	const id = request.params.id
-	const person = persons.find(p => p.id === id)
-
-	if (!person) {
-		return response.status(404).end()
-	}
-
-	persons = persons.filter(p => p.id !== id)
-	response.status(204).end()
+	Note.findByIdAndDelete(request.params.id)
+		.then(result => {
+			response.status(204).end()
+		})
 })
 
 app.post('/api/persons', (request, response) => {
