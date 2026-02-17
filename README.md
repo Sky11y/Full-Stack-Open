@@ -83,13 +83,13 @@ Status legend
 | 3.9 |  phonebook backend, step9 | DONE |
 | 3.10 |  phonebook backend, step10 | DONE |
 | 3.11 |  phonebook backend, step11 | DONE |
-| 3.12 | Command-line database | N/A |
-| 3.13 | phonebook database, step1 | N/A |
-| 3.14 | phonebook database, step2 | N/A |
-| 3.15 | phonebook database, step3 | N/A |
-| 3.16 | phonebook database, step4 | N/A |
-| 3.17* | phonebook database, step5 | N/A |
-| 3.18* | phonebook database, step6 | N/A |
+| 3.12 | Command-line database | DONE |
+| 3.13 | phonebook database, step1 | DONE |
+| 3.14 | phonebook database, step2 | DONE |
+| 3.15 | phonebook database, step3 | DONE |
+| 3.16 | phonebook database, step4 | DONE |
+| 3.17* | phonebook database, step5 | DONE |
+| 3.18* | phonebook database, step6 | DONE |
 | 3.19* | phonebook database, step7 | N/A |
 | 3.20* | phonebook database, step8 | N/A |
 | 3.21 | deploying the database backend to production | N/A |
