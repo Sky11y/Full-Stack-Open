@@ -5,7 +5,7 @@ const Person = require('./models/person')
 	
 const app = express()
 
-let people = [
+let persons = [
 	{
 		id: "1",
 		name: "Arto Hellas",
@@ -36,13 +36,13 @@ app.use(express.static('dist'))
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
-app.get('/api/people', (request, response) => {
-	Person.find({}).then(people => {
-		response.json(people)
+app.get('/api/persons', (request, response) => {
+	Person.find({}).then(persons => {
+		response.json(persons)
 	})
 })
 
-app.get('/api/people/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
 	Person.findById(request.params.id).then(person => {
 		response.json(person)
 	})
@@ -50,23 +50,23 @@ app.get('/api/people/:id', (request, response) => {
 
 app.get('/info', (request, response) => {
 	const time = new Date().toString()
-	const text = `<p>Phonebook has info for ${people.length} people</p><p>${time}</p>`
+	const text = `<p>Phonebook has info for ${persons.length} persons</p><p>${time}</p>`
 	response.send(text)
 })
 
-app.delete('/api/people/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response) => {
 	const id = request.params.id
-	const person = people.find(p => p.id === id)
+	const person = persons.find(p => p.id === id)
 
 	if (!person) {
 		return response.status(404).end()
 	}
 
-	people = people.filter(p => p.id !== id)
+	persons = persons.filter(p => p.id !== id)
 	response.status(204).end()
 })
 
-app.post('/api/people', (request, response) => {
+app.post('/api/persons', (request, response) => {
 	const body = request.body
 
 	if (!body.name) {
