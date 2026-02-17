@@ -1,2 +1,3 @@
 lessons*
 *.swp
+.env
