@@ -40,7 +40,7 @@ app.get('/info', (request, response) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-	Note.findByIdAndDelete(request.params.id)
+	Person.findByIdAndDelete(request.params.id)
 		.then(result => {
 			response.status(204).end()
 		})
