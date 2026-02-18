@@ -14,12 +14,12 @@ mongoose.connect(url)
 const personSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		minlength: 3,
+		minlength: [3, 'mimimum length of name is 3'],
 		required: true
 	},
 	number: {
 		type: String,
-		minlength: 8,
+		minlength: [8, 'Invalid phonenumber'],
 		validate: {
 			validator: function(v) {
 				return /\d{2,3}-\d{6,8}/.test(v);
