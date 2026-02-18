@@ -14,12 +14,22 @@ mongoose.connect(url)
 const personSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		minlength: [3, 'mimimum length of name is 3'],
+		validate: {
+			validator: function(v) {
+				return v.length >= 3;
+			},
+			message: props => `${props.value} is less than 3 characters long!`
+		},
 		required: true
 	},
 	number: {
 		type: String,
-		minlength: [8, 'Invalid phonenumber'],
+		validate: {
+			validator: function(v) {
+				return v.length >= 8;
+			},
+			message: props => `${props.value} is too short. Minimum length is 8.`
+		},
 		validate: {
 			validator: function(v) {
 				return /\d{2,3}-\d{6,8}/.test(v);
