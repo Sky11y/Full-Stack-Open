@@ -84,6 +84,9 @@ const App = () => {
 						setUserMessageType(null)
 					}, MSG_TIME)
 				})
+				.catch(error => {
+					console.log(error.response.data)
+				})
 		}
 	}
 
