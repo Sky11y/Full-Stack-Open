@@ -36,6 +36,9 @@ const App = () => {
 		if (!newName) {
 			window.alert('Name field cannot be empty!')
 		}
+		else if (!newNumber) {
+			window.alert('Number field cannot be empty!')
+		}
 		else if (persons.some(p => p.number === newNumber)) {
 			window.alert(`Phonenumber ${newNumber} is already in use`)
 		}
@@ -85,8 +88,13 @@ const App = () => {
 					}, MSG_TIME)
 				})
 				.catch(error => {
-					console.log(error.response.data)
+					setUserMessage(error.response.data.error)
+					setUserMessageType('error')
 				})
+				setTimeout(() => {
+					setUserMessage(null)
+					setUserMessageType(null)
+				}, MSG_TIME)
 		}
 	}
 

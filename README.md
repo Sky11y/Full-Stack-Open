@@ -90,10 +90,10 @@ Status legend
 | 3.16 | phonebook database, step4 | DONE |
 | 3.17* | phonebook database, step5 | DONE |
 | 3.18* | phonebook database, step6 | DONE |
-| 3.19* | phonebook database, step7 | N/A |
-| 3.20* | phonebook database, step8 | N/A |
-| 3.21 | deploying the database backend to production | N/A |
-| 3.22 | lint configuration | N/A |
+| 3.19 | phonebook database, step7 | DONE |
+| 3.20* | phonebook database, step8 | DONE |
+| 3.21 | deploying the database backend to production | DONE |
+| 3.22 | lint configuration | DONE |
 
 ## Part 4 - Testing Express servers, user administration
 
