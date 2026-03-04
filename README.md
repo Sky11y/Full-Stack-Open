@@ -97,6 +97,32 @@ Status legend
 
 ## Part 4 - Testing Express servers, user administration
 
+| No  | Exercise name | Status |
+|-----|----|----|
+| 4.1 | Blog List, step1 | N/A |
+| 4.2 | Blog List, step2 | N/A |
+| 4.3 | Helper Functions and Unit Tests, step1 | N/A |
+| 4.4 | Helper Functions and Unit Tests, step2 | N/A |
+| 4.5* | Helper Functions and Unit Tests, step3 | N/A |
+| 4.6* | Helper Functions and Unit Tests, step4 | N/A |
+| 4.7* | Helper Functions and Unit Tests, step5 | N/A |
+| 4.8 | Blog List Tests, step1 | N/A |
+| 4.9 | Blog List Tests, step2 | N/A |
+| 4.10 | Blog List Tests, step3 | N/A |
+| 4.11* | Blog List Tests, step4 | N/A |
+| 4.12* | Blog List Tests, step5 | N/A |
+| 4.13 | Blog List Expansions, step1 | N/A |
+| 4.14 | Blog List Expansions, step2 | N/A |
+| 4.15 | Blog List Expansions, step3 | N/A |
+| 4.16* | Blog List Expansions, step4 | N/A |
+| 4.17 | Blog List Expansions, step5 | N/A |
+| 4.18 | Blog List Expansions, step6 | N/A |
+| 4.19 | Blog List Expansions, step7 | N/A |
+| 4.20* | Blog List Expansions, step8 | N/A |
+| 4.21* | Blog List Expansions, step9 | N/A |
+| 4.22* | Blog List Expansions, step10 | N/A |
+| 4.23* | Blog List Expansions, step11 | N/A |
+
 ## Part 5 - Testing React apps
 
 ## Part 6 - Advanced state management
