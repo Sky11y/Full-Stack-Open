@@ -7,15 +7,22 @@ const totalLikes = (blogs) => {
     return 0
   }
   
-  let array_of_likes = blogs.map(item => item.likes)
-  let total = array_of_likes.reduce(
-    (acc, current) => acc + current,
-    0,
-  )
-  return total
+  return blogs.reduce((acc, current) => acc + current.likes, 0)
+}
+
+const favoriteBlog = (blogs) => {
+  if (blogs.length === 0) {
+    return null
+  }
+
+  let mostLikes = blogs.reduce((largest, current) => 
+    (current.likes > largest.likes ? current : largest), blogs[0])
+
+  return mostLikes
 }
 
 module.exports = {
   dummy,
-  totalLikes
+  totalLikes,
+  favoriteBlog,
 }
