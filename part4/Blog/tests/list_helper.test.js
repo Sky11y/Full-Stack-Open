@@ -84,7 +84,7 @@ describe('total likes', () => {
   })
 })
 
-describe('most likes', () => {
+describe('favorite Blog', () => {
 
   test('When theres only one blog it has the most likes', () => {
     const result = listHelper.favoriteBlog(listWithOneBlog)
@@ -94,5 +94,37 @@ describe('most likes', () => {
   test('When list has multiple blogs find the first occurrence of most likes', () => {
     const result = listHelper.favoriteBlog(blogs)
     assert.deepStrictEqual(result, blogs[2])
+  })
+})
+
+describe('most blogs', () => {
+
+  const expected = { "author": listWithOneBlog[0].author, "blogs": 1}
+  test('When theres only one blog it is the max', () => {
+    const result = listHelper.mostBlogs(listWithOneBlog)
+    assert.deepStrictEqual(result, expected)
+    //assert.deepStrictEqual(result, listWithOneBlog[0])
+  })
+
+  const expected2 = { "author": "Robert C. Martin", "blogs": 3}
+  test('When list has multiple blogs find the author with most blogs', () => {
+    const result = listHelper.mostBlogs(blogs)
+    assert.deepStrictEqual(result, expected2)
+  })
+})
+
+describe('most likes', () => {
+
+  const expected = { "author": listWithOneBlog[0].author, "likes": 5}
+  test('When theres only one blog it is the max', () => {
+    const result = listHelper.mostLikes(listWithOneBlog)
+    assert.deepStrictEqual(1, 1)
+    assert.deepStrictEqual(result, expected)
+  })
+
+  const expected2 = { "author": "Edsger W. Dijkstra", "likes": 17}
+  test('When list has multiple blogs find the author with most blogs', () => {
+    const result = listHelper.mostLikes(blogs)
+    assert.deepStrictEqual(result, expected2)
   })
 })
