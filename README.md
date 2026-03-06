@@ -99,13 +99,13 @@ Status legend
 
 | No  | Exercise name | Status |
 |-----|----|----|
-| 4.1 | Blog List, step1 | N/A |
-| 4.2 | Blog List, step2 | N/A |
-| 4.3 | Helper Functions and Unit Tests, step1 | N/A |
-| 4.4 | Helper Functions and Unit Tests, step2 | N/A |
-| 4.5* | Helper Functions and Unit Tests, step3 | N/A |
-| 4.6* | Helper Functions and Unit Tests, step4 | N/A |
-| 4.7* | Helper Functions and Unit Tests, step5 | N/A |
+| 4.1 | Blog List, step1 | DONE |
+| 4.2 | Blog List, step2 | DONE |
+| 4.3 | Helper Functions and Unit Tests, step1 | DONE |
+| 4.4 | Helper Functions and Unit Tests, step2 | DONE |
+| 4.5* | Helper Functions and Unit Tests, step3 | DONE |
+| 4.6* | Helper Functions and Unit Tests, step4 | DONE |
+| 4.7* | Helper Functions and Unit Tests, step5 | DONE |
 | 4.8 | Blog List Tests, step1 | N/A |
 | 4.9 | Blog List Tests, step2 | N/A |
 | 4.10 | Blog List Tests, step3 | N/A |
